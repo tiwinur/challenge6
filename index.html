@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Series Sum Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Series Sum Calculator</h2>
+        <form>
+            <div class="form-group">
+                <label for="n">Number of Terms (n):</label>
+                <input type="number" class="form-control" id="n" placeholder="Enter n">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="calculateSeriesSum()">Calculate</button>
+        </form>
+        <br>
+        <div class="result">
+            <h4>Result:</h4>
+            <p id="seriesSum"></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateSeriesSum() {
+            const n = parseInt(document.getElementById('n').value);
+            let sum = 0;
+            let term = 2;
+            
+            for (let i = 0; i < n; i++) {
+                sum += term;
+                term = term * 10 + 2;
+            }
+
+            document.getElementById('seriesSum').innerHTML = `The sum of the series up to ${n} terms is: ${sum}`;
+        }
+    </script>
+
+    <!-- Include Bootstrap and jQuery libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
